@@ -1,0 +1,826 @@
+/* Importando uma fonte monospace para o estilo Tech */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+body {
+  background-color: #0d1117; /* Fundo escuro */
+  color: #c9d1d9;
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+/* ==========================================================================
+   ESTÉTICA CYBER/TECH: HERO & FOTO DE PERFIL
+   ========================================================================== */
+
+/* Organiza o layout da Hero Section (empilhado no mobile, lado a lado no desktop) */
+/* Container principal da Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 400px;
+}
+
+/* Wrapper que organiza Foto (Esq) e Terminal (Dir) */
+.hero-wrapper {
+    display: flex;
+    flex-direction: column; /* No mobile fica um em cima do outro */
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1100px;
+}
+
+@media (min-width: 768px) {
+    .hero-wrapper {
+        flex-direction: row; /* No desktop fica lado a lado */
+        text-align: left;
+    }
+
+    .hero-wrapper .terminal-window {
+        flex: 1; /* O terminal expande para ocupar o espaço restante */
+    }
+}
+
+/* Estilização da Imagem (Círculo Perfeito e Proporcional) */
+/* Estilização da Imagem: Círculo Perfeito e Proporcional ao novo grid */
+.profile-img {
+    width: 180px; 
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%; /* Mantém o círculo perfeito */
+    
+    border: 2px solid #00f0ff; /* Borda Neon Azul */
+    box-shadow: 0 0 18px rgba(0, 240, 255, 0.4),
+                inset 0 0 10px rgba(0, 240, 255, 0.2);
+    
+    background-color: #0d0f12; 
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    border-color: #00ff66; /* Transição para verde tech */
+    box-shadow: 0 0 25px rgba(0, 255, 102, 0.6),
+                inset 0 0 15px rgba(0, 255, 102, 0.4);
+}
+
+/* Container que agrupa Foto e Nome */
+.profile-brand {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Estilização do Nome Animado */
+.glitch-name {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+/* Efeito Glitch (Camadas de cores que piscam) */
+.glitch-name::before,
+.glitch-name::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch-name::before {
+    left: 2px;
+    text-shadow: -2px 0 #00ff66; /* Sombra verde */
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-name::after {
+    left: -2px;
+    text-shadow: -2px 0 #00f0ff; /* Sombra azul */
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+/* Animações de "Interferência" */
+@keyframes glitch-anim {
+    0% { clip: rect(31px, 9999px, 94px, 0); }
+    20% { clip: rect(62px, 9999px, 42px, 0); }
+    40% { clip: rect(16px, 9999px, 78px, 0); }
+    60% { clip: rect(89px, 9999px, 13px, 0); }
+    80% { clip: rect(5px, 9999px, 99px, 0); }
+    100% { clip: rect(52px, 9999px, 32px, 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(65px, 9999px, 100px, 0); }
+    50% { clip: rect(10px, 9999px, 45px, 0); }
+    100% { clip: rect(80px, 9999px, 20px, 0); }
+}
+
+/* Ajuste de responsividade para o nome não quebrar o layout no mobile */
+@media (max-width: 768px) {
+    .profile-brand {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    .glitch-name {
+        font-size: 1.4rem;
+    }
+}
+
+.terminal-window {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+  background-color: #21262d;
+  padding: 10px;
+  border-bottom: 1px solid #30363d;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.terminal-body {
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.prompt {
+  color: #58a6ff; /* Azul Ciano */
+  font-weight: bold;
+}
+
+.cursor {
+  color: #7ee787; /* Verde Neon */
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.projects-section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  color: #7ee787;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  border-bottom: 1px dashed #30363d;
+  padding-bottom: 10px;
+}
+
+/* O Segredo do Grid 2x2 */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas de tamanhos iguais */
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+.project-card {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efeito Hover "Cyber" */
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: #58a6ff;
+  box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+}
+
+.project-card h3 {
+  color: #58a6ff;
+  margin-top: 0;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #8b949e;
+  line-height: 1.5;
+}
+
+.tech-tags {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.tech-tags span {
+  background-color: #21262d;
+  color: #c9d1d9;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #30363d;
+}
+
+.project-link {
+  display: inline-block;
+  color: #7ee787;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade: Quebra para 1 coluna em telas menores que 768px */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* 1 coluna ocupando todo o espaço */
+  }
+}
+
+.certificates-section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.credentials-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.credential-item {
+  background-color: #161b22;
+  border-left: 4px solid #30363d;
+  border-radius: 0 8px 8px 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito ao passar o mouse */
+.credential-item:hover {
+  background-color: #21262d;
+  border-left-color: #ffbd2e; /* Amarelo tecnológico */
+  box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.credential-item:hover .badge-icon {
+  transform: scale(1.2);
+}
+
+.credential-icon {
+  font-size: 2rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+.badge-icon {
+  font-style: normal;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.credential-content {
+  flex-grow: 1;
+}
+
+.credential-content h3 {
+  color: #c9d1d9;
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.institution {
+  color: #58a6ff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 0 0 10px 0;
+}
+
+.description {
+  color: #8b949e;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Badges de Status no canto direito */
+.credential-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.status-active {
+  background-color: rgba(126, 231, 135, 0.1);
+  color: #7ee787;
+  border: 1px solid #7ee787;
+}
+
+.status-progress {
+  background-color: rgba(88, 166, 255, 0.1);
+  color: #58a6ff;
+  border: 1px solid #58a6ff;
+}
+
+.status-verified {
+  background-color: rgba(255, 189, 46, 0.1);
+  color: #ffbd2e;
+  border: 1px solid #ffbd2e;
+}
+
+/* Responsividade para Telas Menores */
+@media (max-width: 600px) {
+  .credential-item {
+    flex-direction: column;
+    align-items: flex-start;
+    border-left: none;
+    border-top: 4px solid #30363d;
+    border-radius: 8px;
+  }
+
+  .credential-item:hover {
+    border-left: none;
+    border-top-color: #ffbd2e;
+  }
+
+  .credential-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* Estilos para o Carrossel de Certificados */
+.carousel-section {
+  margin-top: 50px;
+  background-color: #0d1117;
+  padding: 20px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+}
+
+.sub-section-title {
+  color: #ffbd2e; /* Amarelo tecnológico */
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+  border: 2px solid #21262d;
+  border-radius: 4px;
+  background-color: #161b22;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.carousel-track {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%; /* Cada slide ocupa 100% da largura do track */
+  display: flex;
+  justify-content: center;
+}
+
+.cert-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain; /* Garante que o certificado não fique distorcido */
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.cert-img:hover {
+  opacity: 1; /* Acende a imagem ao passar o mouse */
+}
+
+/* Botões de Navegação */
+.carousel-btn {
+  background: transparent;
+  border: none;
+  color: #58a6ff;
+  font-size: 2rem;
+  font-family: 'Fira Code', monospace;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  color: #7ee787;
+  transform: scale(1.2);
+}
+
+.carousel-btn:active {
+  transform: scale(0.9);
+}
+
+/* Indicadores (Bolinhas na parte inferior) */
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  background-color: #30363d;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-indicator.current-indicator {
+  background-color: #7ee787; /* Verde indicando o ativo */
+  box-shadow: 0 0 8px #7ee787;
+}
+
+/* Responsividade do Carrossel */
+@media (max-width: 600px) {
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+  .cert-img {
+    max-height: 250px;
+  }
+}
+
+.contact-section {
+  padding: 50px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-subtitle {
+  color: #8b949e;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.contact-btn {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 12px 24px;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tech-bracket {
+  color: #8b949e;
+}
+
+/* Efeitos Hover Específicos */
+.btn-linkedin:hover {
+  border-color: #0077b5;
+  color: #0077b5;
+  box-shadow: 0 0 10px rgba(0, 119, 181, 0.2);
+}
+
+.btn-github:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.btn-email:hover {
+  border-color: #7ee787;
+  color: #7ee787;
+  box-shadow: 0 0 10px rgba(126, 231, 135, 0.2);
+}
+
+/* Estilo da mensagem de feedback de cópia */
+.terminal-feedback {
+  margin-top: 20px;
+  min-height: 24px;
+  color: #7ee787;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.terminal-feedback.show {
+  opacity: 1;
+}
+
+/* Rodapé */
+.tech-footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px dashed #30363d;
+  color: #8b949e;
+  font-size: 0.8rem;
+  margin-top: 50px;
+}
+
+.status-online {
+  color: #7ee787;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* --- EASTER EGG TEMA CHRONO --- */
+body.chrono-theme {
+  background-color: #1a0f2e; /* Fundo roxo escuro / místico */
+  color: #fce8a1; /* Texto dourado */
+  transition: background-color 1s ease, color 1s ease;
+}
+
+body.chrono-theme .terminal-window,
+body.chrono-theme .project-card,
+body.chrono-theme .credential-item {
+  background-color: #2a1b47;
+  border-color: #d4af37; /* Bordas douradas */
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+body.chrono-theme .prompt {
+  color: #d4af37;
+}
+
+body.chrono-theme .cursor {
+  color: #ff5f56; /* Cursor vermelho */
+}
+
+/* Animação para a tela "viajando no tempo" */
+@keyframes timeWarp {
+  0% { filter: blur(0) hue-rotate(0deg); }
+  50% { filter: blur(4px) hue-rotate(90deg); transform: scale(1.02); }
+  100% { filter: blur(0) hue-rotate(0deg); transform: scale(1); }
+}
+
+.time-travel-active {
+  animation: timeWarp 1.5s ease-in-out;
+}
+
+/* --- EASTER EGG 2: ELETRÔNICA --- */
+.hidden-switch {
+  color: #161b22; /* Quase invisível no fundo escuro */
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.hidden-switch:hover {
+  color: #ff5f56; /* Fica vermelho se o mouse passar por cima */
+}
+
+/* Classe que "apaga" a página toda */
+.blackout-active * {
+  background-color: #000 !important;
+  color: #000 !important;
+  border-color: #000 !important;
+  box-shadow: none !important;
+  transition: all 0.1s;
+}
+
+/* --- EASTER EGG 3: WANTED POSTER --- */
+.wanted-modal-overlay {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.wanted-modal-overlay.show-modal {
+  display: flex;
+}
+
+.wanted-poster {
+  background-color: #e5d3b3; /* Cor de papel envelhecido */
+  padding: 30px;
+  border: 4px solid #8b5a2b;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+  font-family: 'Times New Roman', serif;
+  transform: rotate(-2deg);
+}
+
+.wanted-title { font-size: 3rem; margin: 0; color: #3e2723; letter-spacing: 5px; }
+.wanted-subtitle { font-size: 1.2rem; margin: 5px 0 15px 0; color: #3e2723; }
+.wanted-name { font-size: 1.5rem; font-weight: bold; color: #3e2723; margin-top: 15px; }
+.wanted-bounty { font-size: 2rem; font-weight: bold; color: #3e2723; margin: 10px 0 0 0; }
+.wanted-image-placeholder { background: #333; height: 200px; border: 2px solid #3e2723; }
+
+/* --- EASTER EGG 4: YU-GI-OH --- */
+.duel-alert-hidden {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 5px solid #d4af37; /* Dourado */
+  padding: 40px;
+  z-index: 10000;
+  text-align: center;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.5);
+}
+
+.duel-alert-hidden.show-duel {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.duel-alert-hidden h1 {
+  color: #fff;
+  text-shadow: 2px 2px 0 #ff0000, -2px -2px 0 #0000ff;
+  font-family: 'Impact', sans-serif;
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+/* --- ESTILO DO DRAGÃO BRANCO DE OLHOS AZUIS --- */
+.blue-eyes-img {
+  width: 100%;
+  max-width: 350px; /* Controla o tamanho máximo da carta/imagem */
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  /* Cria um brilho azul ao redor da imagem para combinar com o monstro */
+  box-shadow: 0 0 30px rgba(88, 166, 255, 0.8), 
+              0 0 10px rgba(255, 255, 255, 0.5);
+  /* Efeito opcional de flutuação para dar mais vida */
+  animation: floatCard 3s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- ESTILOS COMPARTILHADOS (BOTÕES MICRO) --- */
+.btn-micro {
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #8b949e;
+  font-size: 0.7rem;
+  padding: 2px 5px;
+  cursor: pointer;
+  font-family: monospace;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+.btn-micro:hover { color: #ffbd2e; border-color: #ffbd2e; }
+.btn-danger:hover { color: #ff5f56; border-color: #ff5f56; }
+
+/* --- 1. MODO OVERCLOCK --- */
+body.overclocked {
+  background-color: #2b0808 !important; /* Tom de vermelho de superaquecimento */
+  transition: background-color 0.5s ease;
+}
+body.overclocked * {
+  animation-duration: 0.3s !important; /* Animações 3x mais rápidas */
+}
+.terminal-top-warning {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: #ff5f56;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 5px;
+  z-index: 10000;
+  display: none;
+}
+.terminal-top-warning.show { display: block; }
+
+/* --- 2. CHUVA DE CÓDIGO (MATRIX) --- */
+.matrix-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+body.matrix-mode .matrix-bg { opacity: 1; z-index: 9998; }
+body.matrix-mode *:not(#matrix-canvas) {
+  opacity: 0.15 !important; /* Remove a opacidade de tudo na tela */
+  pointer-events: none;
+}
+
+/* --- 3. DESPERTAR DA IA --- */
+.ia-sigla { cursor: pointer; color: #58a6ff; font-weight: bold; }
+.ia-hacked { color: #ff5f56 !important; font-weight: bold; }
+
+/* --- 4. MISSINGNO (GLITCH) --- */
+.missingno-glitch {
+  position: fixed;
+  top: 30%; left: 40%;
+  width: 120px; height: 180px;
+  background: repeating-linear-gradient(
+    45deg,
+    #000, #000 10px, #fff 10px, #fff 20px, #ff5f56 20px, #ff5f56 25px
+  );
+  box-shadow: 10px 10px 0px rgba(0,0,0,0.7);
+  z-index: 10001;
+  display: none;
+  cursor: pointer;
+  animation: glitchAnim 0.2s infinite alternate;
+}
+.missingno-glitch.show { display: flex; align-items: center; justify-content: center; }
+.glitch-text { background: #000; color: #7ee787; font-size: 0.7rem; padding: 2px; text-align: center; }
+
+@keyframes glitchAnim {
+  0% { transform: translate(0, 0) skew(0deg); }
+  20% { transform: translate(-5px, 5px) skew(-10deg); }
+  40% { transform: translate(5px, -5px) skew(10deg); }
+  60% { transform: translate(-5px, -2px) skew(0deg); }
+  100% { transform: translate(2px, 2px) skew(5deg); }
+}
+
