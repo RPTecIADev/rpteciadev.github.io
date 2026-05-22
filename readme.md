@@ -34,7 +34,7 @@ Bem-vindo ao código-fonte do meu portfólio digital. Este projeto materializa m
     </td>
     <td width="50%" align="center" style="padding: 20px;">
       <h3>👾 Segredos Ocultos</h3>
-      <p>A página contém 4 <i>Easter Eggs</i> que demonstram manipulação avançada de DOM e escuta de eventos (incluindo Konami Code e referências a clássicos dos games/animes).</p>
+      <p>A página contém 9 <i>Easter Eggs</i> que demonstram manipulação avançada de DOM e escuta de eventos (incluindo Konami Code e referências a clássicos dos games/animes/filmes, a quem sou e até mesmo a alguns projetos no meu repositório do github.).</p>
     </td>
   </tr>
 </table>
