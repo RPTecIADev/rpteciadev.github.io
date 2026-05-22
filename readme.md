@@ -48,4 +48,4 @@ Este projeto utiliza apenas tecnologias do lado do cliente. Não é necessária 
 1. Clone este repositório:
    
 ```bash
-   git clone [https://github.com/rpteciadev/nome-do-seu-repositorio.git](https://github.com/rpteciadev/nome-do-seu-repositorio.git)
+   git clone [https://github.com/rpteciadev/rpteciadev.github.io.git](https://github.com/rpteciadev/rpteciadev.github.io.git)
