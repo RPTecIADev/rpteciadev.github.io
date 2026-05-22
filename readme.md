@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Embaixador-DIO-yellow?style=for-the-badge&logo=freecodecamp" alt="Embaixador DIO">
 </p>
 
-Bem-vindo ao código-fonte do meu portfólio digital. Este projeto materializa minha transição de carreira para o desenvolvimento **Frontend** e estudos em **Inteligência Artificial**, unindo minha base de mais de 10 anos em eletrônica com a criação de interfaces web modernas e interativas.
+Bem-vindo ao código-fonte do meu portfólio digital. Este projeto materializa minha transição de carreira para o desenvolvimento em **Inteligência Artificial** e  **Frontend**, unindo minha base de mais de 10 anos em eletrônica com a criação de interfaces web modernas e interativas.
 
 ---
 
